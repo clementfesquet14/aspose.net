@@ -1,8 +1,31 @@
-# aspose.net
+# Adding watermark using spire.doc
 
-You can use following lib for this lib.
+https://www.e-iceblue.com/Tutorials/Python/Spire.Doc-for-Python/Program-Guide/Watermark/Python-Insert-Watermarks-in-Word.html
 
-https://limewire.com/d/F25jY#aaBihfLBe1
+from spire.doc import *
+from spire.doc.common import *
+
+# Create a Document object
+document = Document()
+
+# Load a Word document
+document.LoadFromFile("test.docx")
+
+# Create a PictureWatermark object
+picture = PictureWatermark()
+
+# Set the format of the picture watermark
+picture.SetPicture("logo.png")
+picture.Scaling = 100
+picture.IsWashout = False
+
+# Add the image watermark to document
+document.Watermark = picture
+
+#Save the result document
+document.SaveToFile("Output/ImageWatermark.docx", FileFormat.Docx)
+document.Close()
+
 
 # watermarking to word doc
 
